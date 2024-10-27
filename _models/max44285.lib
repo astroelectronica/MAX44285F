@@ -1,0 +1,138 @@
+*model for MAX44285 family
+*version 0: 9/2013
+**************************************************************************************MAX44285L
+.subckt MAX44285L RS1+ RS1- OUT1 RS2+ RS2- OUT2 VDD GND
+X_1 RS1+ RS1- GND OUT1 VDD MAX44285a
+X_2 RS2+ RS2- GND OUT2 VDD MAX44285a
+.ends
+******************************************************************
+.subckt MAX44285a RS+ RS- GND OUT VDD
+R+ RS+ ib+ 1g
+R- RS- ib- 1g
+Vi+ ib+ GND 0
+Vi- ib- GND 0
+GFi+ RS+ GND VALUE={-I(Vi+)+0.8u}
+GFi- RS- GND VALUE={-I(Vi-)+1.2u}
+Rs+ RS+ rsp 100
+Cs+ rsp RS- 19.6n
+Eo OUT2 GND VALUE={((V(rsp)-V(RS-))+(-10u+V(cmr)+V(psr)))*12.5}
+Ell ll GND VALUE={0.013}
+Ecmr cmr GND VALUE={(V(RS+)+V(RS-))/2*1.25e-7}
+Epsr psr GND VALUE={V(VDD)*1.25e-6}
+*Ecc VCC GND RS+ GND 1
+Elim lim lim1 VDD GND 1
+Elim1 lim1 GND VALUE={-0.01}
+Dlim OUT lim DX1
+Dlima ll OUT DX1
+.MODEL DX1  D(n=0.001)
+ICC VDD GND 900u
+Ro OUT2 OUT1 0.1
+D401 OUT1 IO1 DY
+D402 IO2 OUT1 DY
+D403 OUT IO1 DY
+D404 IO2 OUT DY
+I400 IO1 IO2 50m
+.MODEL DY D(IS=100E-14 N=10M)
+.ends
+**************************************************************************************MAX44285T
+.subckt MAX44285T RS1+ RS1- OUT1 RS2+ RS2- OUT2 VDD GND
+X_1 RS1+ RS1- GND OUT1 VDD MAX44285b
+X_2 RS2+ RS2- GND OUT2 VDD MAX44285b
+.ends
+******************************************************************
+.subckt MAX44285b RS+ RS- GND OUT VDD
+R+ RS+ ib+ 1g
+R- RS- ib- 1g
+Vi+ ib+ GND 0
+Vi- ib- GND 0
+GFi+ RS+ GND VALUE={-I(Vi+)+0.8u}
+GFi- RS- GND VALUE={-I(Vi-)+1.2u}
+Rs+ RS+ rsp 100
+Cs+ rsp RS- 19.6n
+Eo OUT2 GND VALUE={((V(rsp)-V(RS-))+(-10u+V(cmr)+V(psr)))*25}
+Ell ll GND VALUE={0.013}
+Ecmr cmr GND VALUE={(V(RS+)+V(RS-))/2*1.25e-7}
+Epsr psr GND VALUE={V(VDD)*1.25e-6}
+*Ecc VCC GND RS+ GND 1
+Elim lim lim1 VDD GND 1
+Elim1 lim1 GND VALUE={-0.01}
+Dlim OUT lim DX1
+Dlima ll OUT DX1
+.MODEL DX1  D(n=0.001)
+ICC VDD GND 900u
+Ro OUT2 OUT1 0.1
+D401 OUT1 IO1 DY
+D402 IO2 OUT1 DY
+D403 OUT IO1 DY
+D404 IO2 OUT DY
+I400 IO1 IO2 50m
+.MODEL DY D(IS=100E-14 N=10M)
+.ends
+**************************************************************************************MAX44285F
+.subckt MAX44285F RS1+ RS1- OUT1 RS2+ RS2- OUT2 VDD GND
+X_1 RS1+ RS1- GND OUT1 VDD MAX44285c
+X_2 RS2+ RS2- GND OUT2 VDD MAX44285c
+.ends
+******************************************************************
+.subckt MAX44285c RS+ RS- GND OUT VDD
+R+ RS+ ib+ 1g
+R- RS- ib- 1g
+Vi+ ib+ GND 0
+Vi- ib- GND 0
+GFi+ RS+ GND VALUE={-I(Vi+)+0.8u}
+GFi- RS- GND VALUE={-I(Vi-)+1.2u}
+Rs+ RS+ rsp 100
+Cs+ rsp RS- 19.6n
+Eo OUT2 GND VALUE={((V(rsp)-V(RS-))+(-10u+V(cmr)+V(psr)))*50}
+Ell ll GND VALUE={0.013}
+Ecmr cmr GND VALUE={(V(RS+)+V(RS-))/2*1.25e-7}
+Epsr psr GND VALUE={V(VDD)*1.25e-6}
+*Ecc VCC GND RS+ GND 1
+Elim lim lim1 VDD GND 1
+Elim1 lim1 GND VALUE={-0.01}
+Dlim OUT lim DX1
+Dlima ll OUT DX1
+.MODEL DX1  D(n=0.001)
+ICC VDD GND 900u
+Ro OUT2 OUT1 0.1
+D401 OUT1 IO1 DY
+D402 IO2 OUT1 DY
+D403 OUT IO1 DY
+D404 IO2 OUT DY
+I400 IO1 IO2 50m
+.MODEL DY D(IS=100E-14 N=10M)
+.ends
+**************************************************************************************MAX44285H
+.subckt MAX44285H RS1+ RS1- OUT1 RS2+ RS2- OUT2 VDD GND
+X_1 RS1+ RS1- GND OUT1 VDD MAX44285d
+X_2 RS2+ RS2- GND OUT2 VDD MAX44285d
+.ends
+******************************************************************
+.subckt MAX44285d RS+ RS- GND OUT VDD
+R+ RS+ ib+ 1g
+R- RS- ib- 1g
+Vi+ ib+ GND 0
+Vi- ib- GND 0
+GFi+ RS+ GND VALUE={-I(Vi+)+0.8u}
+GFi- RS- GND VALUE={-I(Vi-)+1.2u}
+Rs+ RS+ rsp 100
+Cs+ rsp RS- 19.6n
+Eo OUT2 GND VALUE={((V(rsp)-V(RS-))+(-10u+V(cmr)+V(psr)))*100}
+Ell ll GND VALUE={0.013}
+Ecmr cmr GND VALUE={(V(RS+)+V(RS-))/2*1.25e-7}
+Epsr psr GND VALUE={V(VDD)*1.25e-6}
+*Ecc VCC GND RS+ GND 1
+Elim lim lim1 VDD GND 1
+Elim1 lim1 GND VALUE={-0.01}
+Dlim OUT lim DX1
+Dlima ll OUT DX1
+.MODEL DX1  D(n=0.001)
+ICC VDD GND 900u
+Ro OUT2 OUT1 0.1
+D401 OUT1 IO1 DY
+D402 IO2 OUT1 DY
+D403 OUT IO1 DY
+D404 IO2 OUT DY
+I400 IO1 IO2 50m
+.MODEL DY D(IS=100E-14 N=10M)
+.ends
